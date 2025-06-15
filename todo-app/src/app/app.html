@@ -6,11 +6,28 @@
 
   <ul class="todos-container">
     <li class="todo" *ngFor="let todo of allTodos">
-      <p>{{todo.todoName}}</p>
+      <p
+        *ngIf="todo.id !== editTodoId"
+        [ngClass]="{'completed':todo.completed === true}"
+      >
+        {{todo.todoName}}
+      </p>
+      <input
+        type="text"
+        [(ngModel)]="editTodo"
+        *ngIf="todo.id === editTodoId"
+      />
       <div>
-        <span>📝</span>
-        <span>✅</span>
-        <span>❌</span>
+        <span
+          *ngIf="todo.completed === false && editTodoId !== todo.id"
+          (click)="handleEditTodo(todo.id, todo.todoName)"
+          >📝</span
+        >
+        <span *ngIf="todo.id === editTodoId" (click)="handleSetEditNewTodo()"
+          >✔️</span
+        >
+        <span (click)="todo.completed = !todo.completed">✅</span>
+        <span (click)="handleDeleteTodo(todo.id)">❌</span>
       </div>
     </li>
   </ul>

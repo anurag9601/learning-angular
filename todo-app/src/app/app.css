@@ -80,3 +80,19 @@
 .todos-container li div span{
     cursor: pointer;
 }
+
+.todo input{
+    flex: 1;
+    height: 35px;
+    border: 1px solid #0077b6;
+    outline: none;
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 0 15px;
+    color: #ffffff;
+    font-size: 17px;
+}
+
+.todos-container li .completed{
+    text-decoration: line-through;
+}

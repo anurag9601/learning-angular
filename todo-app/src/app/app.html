@@ -1,8 +1,13 @@
 <div class="app-container">
-  <div class="input-container">
-    <input type="text" [(ngModel)]="inputTodo" placeholder="Enter todo" />
-    <button type="button" (click)="handleSetNewTodo()">Add</button>
-  </div>
+  <form class="input-container" (ngSubmit)="handleSetNewTodo()">
+    <input
+      type="text"
+      placeholder="Enter todo"
+      [(ngModel)]="inputTodo"
+      name="inputValue"
+    />
+    <button type="submit">Add</button>
+  </form>
 
   <ul class="todos-container">
     <li class="todo" *ngFor="let todo of allTodos">
